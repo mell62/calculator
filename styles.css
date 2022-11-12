@@ -1,9 +1,9 @@
 .buttons{
     display: flex;
     flex-direction: column;
-    row-gap: 30px;
+    row-gap: 20px;
     height: auto;
-    width: 300px;
+    width: 260px;
 }
 
 .deletions{
@@ -13,7 +13,8 @@
 
 .clear,
 .delete{
-    padding: 20px 50px;
+    height: 50px;
+    width: 120px;
 }
 
 .numbers-and-operations{
@@ -22,17 +23,21 @@
 
 .numbers{
     display: flex;
-    row-gap: 30px;
-    column-gap: 30px;
+    row-gap: 20px;
+    column-gap: 20px;
     flex-wrap: wrap;
 }
 
 .operations{
     display: flex;
     flex-direction: column;
-    row-gap: 30px;
+    row-gap: 20px;
 }
 
 button{
-    padding: 20px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+    width: 50px;
 }
