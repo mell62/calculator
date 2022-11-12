@@ -1,0 +1,38 @@
+.buttons{
+    display: flex;
+    flex-direction: column;
+    row-gap: 30px;
+    height: auto;
+    width: 300px;
+}
+
+.deletions{
+    display: flex;
+    justify-content: space-between;
+}
+
+.clear,
+.delete{
+    padding: 20px 50px;
+}
+
+.numbers-and-operations{
+    display: flex;
+}
+
+.numbers{
+    display: flex;
+    row-gap: 30px;
+    column-gap: 30px;
+    flex-wrap: wrap;
+}
+
+.operations{
+    display: flex;
+    flex-direction: column;
+    row-gap: 30px;
+}
+
+button{
+    padding: 20px 20px;
+}
