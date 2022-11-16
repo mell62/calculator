@@ -6,22 +6,22 @@
 
 function add(num1, num2){
     let result = num1 + num2;
-    return result;
+    return Math.round(result*100000000)/100000000;
 }
 
 function subtract(num1, num2){
     let result = num1 - num2;
-    return result;
+    return Math.round(result*100000000)/100000000;
 }
 
 function multiply(num1, num2){
     let result = num1 * num2;
-    return result;
+    return Math.round(result*100000000)/100000000;
 }
 
 function divide(num1, num2){
     let result = num1 / num2;
-    return result;
+    return Math.round(result*100000000)/100000000;
 }
 
 function operate(operation, num1, num2){
@@ -30,9 +30,40 @@ function operate(operation, num1, num2){
 
 const display = document.querySelector('.display');
 const numbers = document.querySelectorAll('.numberBtn');
+const equalsBtn = document.querySelector('.equalsBtn');
+const operators = document.querySelectorAll('.operatorBtn');
+let number1;
+let number2;
+let operatorValue; 
 
 numbers.forEach((number) => {
-    number.addEventListener("click", () => {
-        display.textContent += number.textContent;
-    })
+    number.addEventListener("click", () => 
+    display.textContent += number.textContent)
+});
+
+operators.forEach((operator) => {
+    operator.addEventListener("click", () =>{
+        number1 = display.textContent;
+        number1 = Number(number1);
+        operatorValue = operator.textContent;
+        display.textContent += operator.textContent;
+    }) 
+});
+
+equalsBtn.addEventListener("click", () => {
+    let displayArr =  display.textContent.split("");
+    number2 = displayArr.slice(displayArr.indexOf(operatorValue)+1);
+    number2 = Number(number2.join(""));
+    if (operatorValue === "+"){
+        display.textContent = operate(add, number1, number2);
+    }
+    else if (operatorValue === "-"){
+        display.textContent = operate(subtract, number1, number2);
+    }
+    else if (operatorValue === "X"){
+        display.textContent = operate(multiply, number1, number2);
+    }
+    else if (operatorValue === "÷"){
+        display.textContent = operate(divide, number1, number2);
+    }
 });
