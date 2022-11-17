@@ -32,6 +32,8 @@ const display = document.querySelector('.display');
 const numbers = document.querySelectorAll('.numberBtn');
 const equalsBtn = document.querySelector('.equalsBtn');
 const operators = document.querySelectorAll('.operatorBtn');
+const clearBtn = document.querySelector('.clear');
+const deleteBtn = document.querySelector('.delete');
 let number1;
 let number2;
 let operatorValue; 
@@ -67,3 +69,11 @@ equalsBtn.addEventListener("click", () => {
         display.textContent = operate(divide, number1, number2);
     }
 });
+
+clearBtn.addEventListener("click", () => {
+    display.textContent="";
+})
+
+deleteBtn.addEventListener("click", () => {
+    display.textContent = display.textContent.slice(0, display.textContent.length-1);
+})
