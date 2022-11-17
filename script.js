@@ -32,11 +32,13 @@ const display = document.querySelector('.display');
 const numbers = document.querySelectorAll('.numberBtn');
 const equalsBtn = document.querySelector('.equalsBtn');
 const operators = document.querySelectorAll('.operatorBtn');
+const decimalBtn = document.querySelector('.decimalBtn');
 const clearBtn = document.querySelector('.clear');
 const deleteBtn = document.querySelector('.delete');
 let number1;
 let number2;
 let operatorValue; 
+let decimalCount = 0;
 
 numbers.forEach((number) => {
     number.addEventListener("click", () => 
@@ -45,6 +47,7 @@ numbers.forEach((number) => {
 
 operators.forEach((operator) => {
     operator.addEventListener("click", () =>{
+        decimalCount = 0;
         number1 = display.textContent;
         number1 = Number(number1);
         operatorValue = operator.textContent;
@@ -53,6 +56,7 @@ operators.forEach((operator) => {
 });
 
 equalsBtn.addEventListener("click", () => {
+    decimalCount = 0;
     let displayArr =  display.textContent.split("");
     number2 = displayArr.slice(displayArr.indexOf(operatorValue)+1);
     number2 = Number(number2.join(""));
@@ -70,10 +74,19 @@ equalsBtn.addEventListener("click", () => {
     }
 });
 
+decimalBtn.addEventListener("click", () =>{
+    if (decimalCount===0){
+        display.textContent += ".";
+        decimalCount++;
+    }  
+}); 
+    
+
 clearBtn.addEventListener("click", () => {
+    decimalCount = 0;
     display.textContent="";
-})
+});
 
 deleteBtn.addEventListener("click", () => {
     display.textContent = display.textContent.slice(0, display.textContent.length-1);
-})
+});
