@@ -28,7 +28,7 @@ function operate(operation, num1, num2){
     return operation(num1,num2);
 }
 
-const display = document.querySelector('.display');
+const display = document.querySelector('.main-display');
 const numbers = document.querySelectorAll('.numberBtn');
 const equalsBtn = document.querySelector('.equalsBtn');
 const operators = document.querySelectorAll('.operatorBtn');
