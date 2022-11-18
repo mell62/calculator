@@ -56,7 +56,6 @@ operators.forEach((operator) => {
 });
 
 equalsBtn.addEventListener("click", () => {
-    decimalCount = 0;
     let displayArr =  display.textContent.split("");
     number2 = displayArr.slice(displayArr.indexOf(operatorValue)+1);
     number2 = Number(number2.join(""));
@@ -80,7 +79,6 @@ decimalBtn.addEventListener("click", () =>{
         decimalCount++;
     }  
 }); 
-    
 
 clearBtn.addEventListener("click", () => {
     decimalCount = 0;
@@ -88,5 +86,10 @@ clearBtn.addEventListener("click", () => {
 });
 
 deleteBtn.addEventListener("click", () => {
+    let beforedeletionCount = display.textContent.split(".").length;
     display.textContent = display.textContent.slice(0, display.textContent.length-1);
+    let afterdeletionCount = display.textContent.split(".").length;
+    if (beforedeletionCount>afterdeletionCount){
+        decimalCount = 0;
+    }
 });
