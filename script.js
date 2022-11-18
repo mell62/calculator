@@ -40,19 +40,25 @@ let number1;
 let number2;
 let operatorValue; 
 let decimalCount = 0;
+let operatorCount = 0;
 
 numbers.forEach((number) => {
-    number.addEventListener("click", () => 
-    display.textContent += number.textContent)
+    number.addEventListener("click", () => { 
+        operatorCount = 0;
+        display.textContent += number.textContent
+    })
 });
 
 operators.forEach((operator) => {
     operator.addEventListener("click", () =>{
         decimalCount = 0;
-        number1 = display.textContent;
-        number1 = Number(number1);
-        operatorValue = operator.textContent;
-        display.textContent += operator.textContent;
+        operatorCount++;
+        if(operatorCount<=1){
+            number1 = display.textContent;
+            number1 = Number(number1);
+            operatorValue = operator.textContent;
+            display.textContent += operator.textContent;
+        }
     }) 
 });
 
@@ -60,6 +66,7 @@ equalsBtn.addEventListener("click", () => {
     if (display.textContent.includes(".")){
         decimalCount++;
     }
+    operatorCount = 0;
     let displayArr =  display.textContent.split("");
     if (display.textContent.includes("+") || display.textContent.includes("-") || display.textContent.includes("X") || display.textContent.includes("÷")){
         number2 = displayArr.slice(displayArr.indexOf(operatorValue)+1);
@@ -73,20 +80,27 @@ decimalBtn.addEventListener("click", () =>{
     if (decimalCount===0){
         display.textContent += ".";
         decimalCount++;
-    }  
+    }
+    operatorCount = 0;  
 }); 
 
-clearBtn.addEventListener("click", () => {
+clearBtn.addEventListener("click", () => {  
     decimalCount = 0;
+    operatorCount = 0;
     display.textContent="";
 });
 
 deleteBtn.addEventListener("click", () => {
     let beforedeletionCount = display.textContent.split(".").length;
+    let firstOperatorcheck = display.textContent.includes("+") || display.textContent.includes("-") || display.textContent.includes("X") || display.textContent.includes("÷");
     display.textContent = display.textContent.slice(0, display.textContent.length-1);
+    let secondOperatorcheck = display.textContent.includes("+") || display.textContent.includes("-") || display.textContent.includes("X") || display.textContent.includes("÷");
     let afterdeletionCount = display.textContent.split(".").length;
     if (beforedeletionCount>afterdeletionCount){
         decimalCount = 0;
+    }
+    if (firstOperatorcheck !== secondOperatorcheck){
+        operatorCount = 0;
     }
 });
 
