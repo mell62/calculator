@@ -29,6 +29,7 @@ function operate(operation, num1, num2){
 }
 
 const display = document.querySelector('.main-display');
+const subDisplay = document.querySelector('.sub-display');
 const numbers = document.querySelectorAll('.numberBtn');
 const equalsBtn = document.querySelector('.equalsBtn');
 const operators = document.querySelectorAll('.operatorBtn');
@@ -60,21 +61,13 @@ equalsBtn.addEventListener("click", () => {
         decimalCount++;
     }
     let displayArr =  display.textContent.split("");
-    number2 = displayArr.slice(displayArr.indexOf(operatorValue)+1);
-    number2 = Number(number2.join(""));
-    if (operatorValue === "+"){
-        display.textContent = operate(add, number1, number2);
-    }
-    else if (operatorValue === "-"){
-        display.textContent = operate(subtract, number1, number2);
-    }
-    else if (operatorValue === "X"){
-        display.textContent = operate(multiply, number1, number2);
-    }
-    else if (operatorValue === "÷"){
-        display.textContent = operate(divide, number1, number2);
+    if (display.textContent.includes("+") || display.textContent.includes("-") || display.textContent.includes("X") || display.textContent.includes("÷")){
+        number2 = displayArr.slice(displayArr.indexOf(operatorValue)+1);
+        number2 = Number(number2.join(""));
     }
 });
+
+equalsBtn.addEventListener("click", evaluate);
 
 decimalBtn.addEventListener("click", () =>{
     if (decimalCount===0){
@@ -96,3 +89,18 @@ deleteBtn.addEventListener("click", () => {
         decimalCount = 0;
     }
 });
+
+function evaluate(){
+    if (operatorValue === "+"){
+        display.textContent = operate(add, number1, number2);
+    }
+    else if (operatorValue === "-"){
+        display.textContent = operate(subtract, number1, number2);
+    }
+    else if (operatorValue === "X"){
+        display.textContent = operate(multiply, number1, number2);
+    }
+    else if (operatorValue === "÷"){
+        display.textContent = operate(divide, number1, number2);
+    }
+}
