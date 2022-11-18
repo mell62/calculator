@@ -56,6 +56,9 @@ operators.forEach((operator) => {
 });
 
 equalsBtn.addEventListener("click", () => {
+    if (display.textContent.includes(".")){
+        decimalCount++;
+    }
     let displayArr =  display.textContent.split("");
     number2 = displayArr.slice(displayArr.indexOf(operatorValue)+1);
     number2 = Number(number2.join(""));
