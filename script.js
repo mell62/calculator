@@ -55,7 +55,9 @@ operators.forEach((operator) => {
     decimalCount = 0;
     operatorCount++;
     if (operatorCount <= 1) {
-      if (display.textContent) {
+      if (display.textContent === "") {
+        number1 = 0;
+      } else {
         number1 = display.textContent;
         number1 = Number(number1);
       }
@@ -71,19 +73,17 @@ equalsBtn.addEventListener("click", () => {
   }
   operatorCount = 0;
   let displayArr = display.textContent.split("");
-  if (
-    display.textContent.includes("+") ||
-    display.textContent.includes("-") ||
-    display.textContent.includes("X") ||
-    display.textContent.includes("÷")
-  ) {
+  if (operatorValue) {
     number2 = displayArr.slice(displayArr.indexOf(operatorValue) + 1);
     number2 = Number(number2.join(""));
   }
 });
 
 equalsBtn.addEventListener("click", evaluate);
-equalsBtn.addEventListener("click", () => (display.textContent = result));
+equalsBtn.addEventListener("click", () => {
+  display.textContent = result;
+  operatorValue = undefined;
+});
 
 decimalBtn.addEventListener("click", () => {
   if (decimalCount === 0) {
@@ -126,16 +126,14 @@ deleteBtn.addEventListener("click", () => {
 });
 
 function evaluate() {
-  if (number2) {
-    if (operatorValue === "+") {
-      result = operate(add, number1, number2);
-    } else if (operatorValue === "-") {
-      result = operate(subtract, number1, number2);
-    } else if (operatorValue === "X") {
-      result = operate(multiply, number1, number2);
-    } else if (operatorValue === "÷") {
-      result = operate(divide, number1, number2);
-    }
+  if (operatorValue === "+") {
+    result = operate(add, number1, number2);
+  } else if (operatorValue === "-") {
+    result = operate(subtract, number1, number2);
+  } else if (operatorValue === "X") {
+    result = operate(multiply, number1, number2);
+  } else if (operatorValue === "÷") {
+    result = operate(divide, number1, number2);
   } else {
     result = display.textContent;
   }
