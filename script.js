@@ -52,6 +52,14 @@ numbers.forEach((number) => {
 
 operators.forEach((operator) => {
   operator.addEventListener("click", () => {
+    if (operatorValue) {
+      let displayArr = display.textContent.split(operatorValue);
+      number2 = displayArr.slice(-1);
+      number2 = Number(number2.join(""));
+      display.textContent = evaluate();
+    }
+  });
+  operator.addEventListener("click", () => {
     decimalCount = 0;
     operatorCount++;
     if (operatorCount <= 1) {
@@ -96,6 +104,7 @@ decimalBtn.addEventListener("click", () => {
 clearBtn.addEventListener("click", () => {
   decimalCount = 0;
   operatorCount = 0;
+  operatorValue = undefined;
   display.textContent = "";
   number1 = NaN;
 });
