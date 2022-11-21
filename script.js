@@ -46,12 +46,14 @@ let result;
 numbers.forEach((number) => {
   number.addEventListener("click", () => {
     operatorCount = 0;
-    display.textContent += number.textContent;
+    if (display.textContent !== "Division by 0 not possible") {
+      display.textContent += number.textContent;
+    }
   });
 });
 
 operators.forEach((operator) => {
-  operator.addEventListener("click", () => {
+  -operator.addEventListener("click", () => {
     if (operatorValue) {
       let displayArr = display.textContent.split(operatorValue);
       number2 = displayArr.slice(-1);
@@ -69,8 +71,10 @@ operators.forEach((operator) => {
         number1 = display.textContent;
         number1 = Number(number1);
       }
-      operatorValue = operator.textContent;
-      display.textContent += operator.textContent;
+      if (display.textContent !== "Division by 0 not possible") {
+        operatorValue = operator.textContent;
+        display.textContent += operator.textContent;
+      }
     }
   });
 });
@@ -142,7 +146,11 @@ function evaluate() {
   } else if (operatorValue === "X") {
     return (result = operate(multiply, number1, number2));
   } else if (operatorValue === "÷") {
-    return (result = operate(divide, number1, number2));
+    if (number2 === 0) {
+      return (result = "Division by 0 not possible");
+    } else {
+      return (result = operate(divide, number1, number2));
+    }
   } else {
     return (result = display.textContent);
   }
