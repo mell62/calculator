@@ -72,9 +72,9 @@ equalsBtn.addEventListener("click", () => {
     decimalCount++;
   }
   operatorCount = 0;
-  let displayArr = display.textContent.split("");
+  let displayArr = display.textContent.split(operatorValue);
   if (operatorValue) {
-    number2 = displayArr.slice(displayArr.indexOf(operatorValue) + 1);
+    number2 = displayArr.slice(-1);
     number2 = Number(number2.join(""));
   }
 });
@@ -127,14 +127,14 @@ deleteBtn.addEventListener("click", () => {
 
 function evaluate() {
   if (operatorValue === "+") {
-    result = operate(add, number1, number2);
+    return (result = operate(add, number1, number2));
   } else if (operatorValue === "-") {
-    result = operate(subtract, number1, number2);
+    return (result = operate(subtract, number1, number2));
   } else if (operatorValue === "X") {
-    result = operate(multiply, number1, number2);
+    return (result = operate(multiply, number1, number2));
   } else if (operatorValue === "÷") {
-    result = operate(divide, number1, number2);
+    return (result = operate(divide, number1, number2));
   } else {
-    result = display.textContent;
+    return (result = display.textContent);
   }
 }
