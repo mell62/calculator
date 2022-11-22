@@ -46,7 +46,9 @@ let result;
 numbers.forEach((number) => {
   number.addEventListener("click", () => {
     operatorCount = 0;
-    if (display.textContent !== "Division by 0 not possible") {
+    if (display.textContent !== "Division by 0 not possible" && operatorValue) {
+      subDisplay.textContent += number.textContent;
+    } else if (display.textContent !== "Division by 0 not possible") {
       display.textContent += number.textContent;
     }
   });
@@ -54,11 +56,12 @@ numbers.forEach((number) => {
 
 operators.forEach((operator) => {
   operator.addEventListener("click", () => {
-    let displayArr = display.textContent.split(operatorValue);
+    let displayArr = subDisplay.textContent.split(operatorValue);
     if (operatorValue && displayArr[1]) {
       number2 = displayArr.slice(-1);
       number2 = Number(number2.join(""));
       display.textContent = evaluate();
+      subDisplay.textContent = display.textContent + operatorValue;
     }
   });
   operator.addEventListener("click", () => {
@@ -73,7 +76,9 @@ operators.forEach((operator) => {
       }
       if (display.textContent !== "Division by 0 not possible") {
         operatorValue = operator.textContent;
-        display.textContent += operator.textContent;
+        subDisplay.textContent = display.textContent + operator.textContent;
+      } else {
+        subDisplay.textContent = "";
       }
     }
   });
@@ -84,7 +89,7 @@ equalsBtn.addEventListener("click", () => {
     decimalCount++;
   }
   operatorCount = 0;
-  let displayArr = display.textContent.split(operatorValue);
+  let displayArr = subDisplay.textContent.split(operatorValue);
   if (operatorValue) {
     number2 = displayArr.slice(-1);
     number2 = Number(number2.join(""));
