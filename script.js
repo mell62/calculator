@@ -53,9 +53,9 @@ numbers.forEach((number) => {
 });
 
 operators.forEach((operator) => {
-  -operator.addEventListener("click", () => {
-    if (operatorValue) {
-      let displayArr = display.textContent.split(operatorValue);
+  operator.addEventListener("click", () => {
+    let displayArr = display.textContent.split(operatorValue);
+    if (operatorValue && displayArr[1]) {
       number2 = displayArr.slice(-1);
       number2 = Number(number2.join(""));
       display.textContent = evaluate();
