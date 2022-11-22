@@ -115,7 +115,9 @@ clearBtn.addEventListener("click", () => {
   operatorCount = 0;
   operatorValue = undefined;
   display.textContent = "";
+  subDisplay.textContent = "";
   number1 = NaN;
+  number2 = NaN;
 });
 
 deleteBtn.addEventListener("click", () => {
