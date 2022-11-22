@@ -114,27 +114,29 @@ clearBtn.addEventListener("click", () => {
 });
 
 deleteBtn.addEventListener("click", () => {
-  let beforedeletionCount = display.textContent.split(".").length;
-  let firstOperatorcheck =
-    display.textContent.includes("+") ||
-    display.textContent.includes("-") ||
-    display.textContent.includes("X") ||
-    display.textContent.includes("÷");
-  display.textContent = display.textContent.slice(
-    0,
-    display.textContent.length - 1
-  );
-  let secondOperatorcheck =
-    display.textContent.includes("+") ||
-    display.textContent.includes("-") ||
-    display.textContent.includes("X") ||
-    display.textContent.includes("÷");
-  let afterdeletionCount = display.textContent.split(".").length;
-  if (beforedeletionCount > afterdeletionCount) {
-    decimalCount = 0;
-  }
-  if (firstOperatorcheck !== secondOperatorcheck) {
-    operatorCount = 0;
+  if (display.textContent !== "Division by 0 not possible") {
+    let beforedeletionCount = display.textContent.split(".").length;
+    let firstOperatorcheck =
+      display.textContent.includes("+") ||
+      display.textContent.includes("-") ||
+      display.textContent.includes("X") ||
+      display.textContent.includes("÷");
+    display.textContent = display.textContent.slice(
+      0,
+      display.textContent.length - 1
+    );
+    let secondOperatorcheck =
+      display.textContent.includes("+") ||
+      display.textContent.includes("-") ||
+      display.textContent.includes("X") ||
+      display.textContent.includes("÷");
+    let afterdeletionCount = display.textContent.split(".").length;
+    if (beforedeletionCount > afterdeletionCount) {
+      decimalCount = 0;
+    }
+    if (firstOperatorcheck !== secondOperatorcheck) {
+      operatorCount = 0;
+    }
   }
 });
 
