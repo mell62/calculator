@@ -45,10 +45,14 @@ let result;
 
 numbers.forEach((number) => {
   number.addEventListener("click", () => {
-    operatorCount = 0;
-    if (display.textContent !== "Division by 0 not possible" && operatorValue) {
-      subDisplay.textContent += number.textContent;
-    } else if (display.textContent !== "Division by 0 not possible") {
+    if (display.textContent !== "Division by 0 not possible" && operatorCount) {
+      display.textContent = "";
+      display.textContent += number.textContent;
+      operatorCount = 0;
+    } else if (
+      display.textContent !== "Division by 0 not possible" &&
+      !operatorCount
+    ) {
       display.textContent += number.textContent;
     }
   });
