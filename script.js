@@ -60,29 +60,29 @@ numbers.forEach((number) => {
 
 operators.forEach((operator) => {
   operator.addEventListener("click", () => {
-    let displayArr = subDisplay.textContent.split(operatorValue);
-    if (operatorValue && displayArr[1]) {
-      number2 = displayArr.slice(-1);
-      number2 = Number(number2.join(""));
+    if (subDisplay.textContent.includes(operatorValue)) {
+      number2 = Number(display.textContent);
       display.textContent = evaluate();
-      subDisplay.textContent = display.textContent + operatorValue;
+      operatorValue = operator.textContent;
     }
   });
   operator.addEventListener("click", () => {
     decimalCount = 0;
     operatorCount++;
-    if (operatorCount <= 1) {
-      if (display.textContent === "") {
-        number1 = 0;
-      } else {
-        number1 = display.textContent;
-        number1 = Number(number1);
-      }
-      if (display.textContent !== "Division by 0 not possible") {
-        operatorValue = operator.textContent;
-        subDisplay.textContent = display.textContent + operator.textContent;
-      } else {
-        subDisplay.textContent = "";
+    if (!subDisplay.textContent.includes(operatorValue)) {
+      if (operatorCount <= 1) {
+        if (display.textContent === "") {
+          number1 = 0;
+        } else {
+          number1 = display.textContent;
+          number1 = Number(number1);
+        }
+        if (display.textContent !== "Division by 0 not possible") {
+          operatorValue = operator.textContent;
+          subDisplay.textContent = display.textContent + operator.textContent;
+        } else {
+          subDisplay.textContent = "";
+        }
       }
     }
   });
