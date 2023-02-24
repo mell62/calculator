@@ -45,7 +45,12 @@ let result;
 
 numbers.forEach((number) => {
   number.addEventListener("click", () => {
-    if (display.textContent !== "Division by 0 not possible" && operatorCount) {
+    if (display.textContent === "-") {
+      display.textContent += number.textContent;
+    } else if (
+      display.textContent !== "Division by 0 not possible" &&
+      operatorCount
+    ) {
       display.textContent = "";
       display.textContent += number.textContent;
       operatorCount = 0;
@@ -60,7 +65,18 @@ numbers.forEach((number) => {
 
 operators.forEach((operator) => {
   operator.addEventListener("click", () => {
-    if (subDisplay.textContent.includes(operatorValue)) {
+    if (operator.textContent === "-") {
+      if (display.textContent === "" || operatorCount) {
+        display.textContent = "-";
+      }
+    }
+  });
+
+  operator.addEventListener("click", () => {
+    if (
+      subDisplay.textContent.includes(operatorValue) &&
+      display.textContent !== "-"
+    ) {
       number2 = Number(display.textContent);
       display.textContent = evaluate();
       operatorValue = operator.textContent;
@@ -69,20 +85,20 @@ operators.forEach((operator) => {
   operator.addEventListener("click", () => {
     decimalCount = 0;
     operatorCount++;
-    if (!subDisplay.textContent.includes(operatorValue)) {
-      if (operatorCount <= 1) {
-        if (display.textContent === "") {
-          number1 = 0;
-        } else {
-          number1 = display.textContent;
-          number1 = Number(number1);
-        }
-        if (display.textContent !== "Division by 0 not possible") {
-          operatorValue = operator.textContent;
-          subDisplay.textContent = display.textContent + operator.textContent;
-        } else {
-          subDisplay.textContent = "";
-        }
+    if (operatorCount <= 1) {
+      if (display.textContent === "") {
+        number1 = 0;
+      } else {
+        number1 = Number(display.textContent);
+      }
+      if (
+        display.textContent !== "Division by 0 not possible" &&
+        display.textContent !== "-"
+      ) {
+        operatorValue = operator.textContent;
+        subDisplay.textContent = display.textContent + operator.textContent;
+      } else {
+        subDisplay.textContent = "";
       }
     }
   });
@@ -93,10 +109,11 @@ equalsBtn.addEventListener("click", () => {
     decimalCount++;
   }
   operatorCount = 0;
-  let displayArr = subDisplay.textContent.split(operatorValue);
-  if (operatorValue) {
-    number2 = displayArr.slice(-1);
-    number2 = Number(number2.join(""));
+});
+
+equalsBtn.addEventListener("click", () => {
+  if (subDisplay.textContent) {
+    number2 = Number(display.textContent);
   }
 });
 
