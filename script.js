@@ -118,7 +118,9 @@ equalsBtn.addEventListener("click", () => {
 });
 
 equalsBtn.addEventListener("click", evaluate);
+
 equalsBtn.addEventListener("click", () => {
+  subDisplay.textContent += display.textContent + "=";
   display.textContent = result;
   operatorValue = undefined;
 });
