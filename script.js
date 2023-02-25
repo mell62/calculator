@@ -137,8 +137,13 @@ equalsBtn.addEventListener("click", () => {
 
 decimalBtn.addEventListener("click", () => {
   if (decimalCount === 0) {
-    display.textContent += ".";
-    decimalCount++;
+    if (display.textContent === "" || operatorCount) {
+      display.textContent = "0" + ".";
+      decimalCount++;
+    } else {
+      display.textContent += ".";
+      decimalCount++;
+    }
   }
   operatorCount = 0;
 });
