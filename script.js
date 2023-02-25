@@ -41,9 +41,17 @@ let number2;
 let operatorValue;
 let decimalCount = 0;
 let operatorCount = 0;
+let equalsCount = 0;
 let result;
 
 numbers.forEach((number) => {
+  number.addEventListener("click", () => {
+    if (equalsCount) {
+      equalsCount = 0;
+      display.textContent = "";
+      subDisplay.textContent = "";
+    }
+  });
   number.addEventListener("click", () => {
     if (display.textContent === "-") {
       display.textContent += number.textContent;
@@ -85,6 +93,7 @@ operators.forEach((operator) => {
   operator.addEventListener("click", () => {
     decimalCount = 0;
     operatorCount++;
+    equalsCount = 0;
     if (operatorCount <= 1) {
       if (display.textContent === "") {
         number1 = 0;
@@ -117,12 +126,13 @@ equalsBtn.addEventListener("click", () => {
   }
 });
 
-equalsBtn.addEventListener("click", evaluate);
-
 equalsBtn.addEventListener("click", () => {
-  subDisplay.textContent += display.textContent + "=";
-  display.textContent = result;
-  operatorValue = undefined;
+  if (display.textContent && !equalsCount) {
+    subDisplay.textContent += display.textContent + "=";
+    display.textContent = evaluate();
+    operatorValue = undefined;
+    equalsCount++;
+  }
 });
 
 decimalBtn.addEventListener("click", () => {
