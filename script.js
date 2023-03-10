@@ -55,6 +55,7 @@ numbers.forEach((number) => {
   number.addEventListener("click", () => {
     if (display.textContent === "-") {
       display.textContent += number.textContent;
+      operatorCount = 0;
     } else if (
       display.textContent !== "Division by 0 not possible" &&
       operatorCount
@@ -97,6 +98,7 @@ operators.forEach((operator) => {
     if (operatorCount <= 1) {
       if (display.textContent === "") {
         number1 = 0;
+        display.textContent = "0";
       } else {
         number1 = Number(display.textContent);
       }
