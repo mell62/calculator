@@ -119,22 +119,34 @@ equalsBtn.addEventListener("click", () => {
   if (display.textContent.includes(".")) {
     decimalCount++;
   }
-  operatorCount = 0;
 });
 
 equalsBtn.addEventListener("click", () => {
   if (subDisplay.textContent) {
-    number2 = Number(display.textContent);
+    if (operatorCount) {
+      number2 = 0;
+    } else {
+      number2 = Number(display.textContent);
+    }
   }
 });
 
 equalsBtn.addEventListener("click", () => {
-  if (display.textContent && !equalsCount) {
+  if (operatorCount) {
+    subDisplay.textContent += "0" + "=";
+    display.textContent = evaluate();
+    operatorValue = undefined;
+    equalsCount++;
+  } else if (display.textContent && !equalsCount) {
     subDisplay.textContent += display.textContent + "=";
     display.textContent = evaluate();
     operatorValue = undefined;
     equalsCount++;
   }
+});
+
+equalsBtn.addEventListener("click", () => {
+  operatorCount = 0;
 });
 
 decimalBtn.addEventListener("click", () => {
