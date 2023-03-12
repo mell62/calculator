@@ -102,6 +102,10 @@ operators.forEach((operator) => {
         display.textContent = "0";
       } else {
         number1 = Number(display.textContent);
+        if (number1 === Math.floor(number1)) {
+          number1 = Math.floor(number1);
+          display.textContent = number1;
+        }
       }
       if (
         display.textContent !== "Division by 0 not possible" &&
@@ -128,6 +132,10 @@ equalsBtn.addEventListener("click", () => {
       number2 = 0;
     } else {
       number2 = Number(display.textContent);
+      if (number2 === Math.floor(number2)) {
+        number2 = Math.floor(number2);
+        display.textContent = number2;
+      }
     }
   }
 });
