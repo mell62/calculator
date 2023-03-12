@@ -84,7 +84,8 @@ operators.forEach((operator) => {
   operator.addEventListener("click", () => {
     if (
       subDisplay.textContent.includes(operatorValue) &&
-      display.textContent !== "-"
+      display.textContent !== "-" &&
+      operatorCount === 0
     ) {
       number2 = Number(display.textContent);
       display.textContent = evaluate();
