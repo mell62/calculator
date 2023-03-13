@@ -121,12 +121,6 @@ operators.forEach((operator) => {
 });
 
 equalsBtn.addEventListener("click", () => {
-  if (display.textContent.includes(".")) {
-    decimalCount++;
-  }
-});
-
-equalsBtn.addEventListener("click", () => {
   if (subDisplay.textContent) {
     if (operatorCount) {
       number2 = 0;
@@ -151,6 +145,12 @@ equalsBtn.addEventListener("click", () => {
     display.textContent = evaluate();
     operatorValue = undefined;
     equalsCount++;
+  }
+});
+
+equalsBtn.addEventListener("click", () => {
+  if (display.textContent.includes(".")) {
+    decimalCount++;
   }
 });
 
