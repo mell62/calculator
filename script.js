@@ -159,6 +159,15 @@ equalsBtn.addEventListener("click", () => {
 });
 
 decimalBtn.addEventListener("click", () => {
+  if (equalsCount) {
+    equalsCount = 0;
+    decimalCount = 0;
+    display.textContent = "";
+    subDisplay.textContent = "";
+  }
+});
+
+decimalBtn.addEventListener("click", () => {
   if (decimalCount === 0) {
     if (display.textContent === "" || operatorCount) {
       display.textContent = "0" + ".";
