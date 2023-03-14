@@ -6,22 +6,22 @@
 
 function add(num1, num2) {
   let result = num1 + num2;
-  return Math.round(result * 100000000) / 100000000;
+  return Math.round(result * 10000000) / 10000000;
 }
 
 function subtract(num1, num2) {
   let result = num1 - num2;
-  return Math.round(result * 100000000) / 100000000;
+  return Math.round(result * 10000000) / 10000000;
 }
 
 function multiply(num1, num2) {
   let result = num1 * num2;
-  return Math.round(result * 100000000) / 100000000;
+  return Math.round(result * 10000000) / 10000000;
 }
 
 function divide(num1, num2) {
   let result = num1 / num2;
-  return Math.round(result * 100000000) / 100000000;
+  return Math.round(result * 10000000) / 10000000;
 }
 
 function operate(operation, num1, num2) {
