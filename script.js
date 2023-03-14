@@ -61,15 +61,17 @@ numbers.forEach((number) => {
         display.textContent += number.textContent;
         operatorCount = 0;
       } else if (
-        display.textContent !== "Division by 0 not possible" &&
-        operatorCount
+        display.textContent !== "Undefined" &&
+        operatorCount &&
+        display.textContent !== "Number limit exceeded"
       ) {
         display.textContent = "";
         display.textContent += number.textContent;
         operatorCount = 0;
       } else if (
-        display.textContent !== "Division by 0 not possible" &&
-        !operatorCount
+        display.textContent !== "Undefined" &&
+        !operatorCount &&
+        display.textContent !== "Number limit exceeded"
       ) {
         display.textContent += number.textContent;
       }
@@ -94,6 +96,9 @@ operators.forEach((operator) => {
     ) {
       number2 = Number(display.textContent);
       display.textContent = evaluate();
+      if (display.textContent.length > 10) {
+        display.textContent = "Number limit exceeded";
+      }
       operatorValue = operator.textContent;
     }
   });
@@ -113,8 +118,9 @@ operators.forEach((operator) => {
         }
       }
       if (
-        display.textContent !== "Division by 0 not possible" &&
-        display.textContent !== "-"
+        display.textContent !== "Undefined" &&
+        display.textContent !== "-" &&
+        display.textContent !== "Number limit exceeded"
       ) {
         operatorValue = operator.textContent;
         subDisplay.textContent = display.textContent + operator.textContent;
@@ -148,6 +154,9 @@ equalsBtn.addEventListener("click", () => {
   } else if (display.textContent && !equalsCount) {
     subDisplay.textContent += display.textContent + "=";
     display.textContent = evaluate();
+    if (display.textContent.length > 10) {
+      display.textContent = "Number limit exceeded";
+    }
     operatorValue = undefined;
     equalsCount++;
   }
@@ -196,7 +205,10 @@ clearBtn.addEventListener("click", () => {
 });
 
 deleteBtn.addEventListener("click", () => {
-  if (display.textContent !== "Division by 0 not possible") {
+  if (
+    display.textContent !== "Undefined" &&
+    display.textContent !== "Number limit exceeded"
+  ) {
     let beforedeletionCount = display.textContent.split(".").length;
     let firstOperatorcheck =
       display.textContent.includes("+") ||
@@ -231,7 +243,7 @@ function evaluate() {
     return (result = operate(multiply, number1, number2));
   } else if (operatorValue === "÷") {
     if (number2 === 0) {
-      return (result = "Division by 0 not possible");
+      return (result = "Undefined");
     } else {
       return (result = operate(divide, number1, number2));
     }
