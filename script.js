@@ -53,21 +53,26 @@ numbers.forEach((number) => {
     }
   });
   number.addEventListener("click", () => {
-    if (display.textContent === "-") {
-      display.textContent += number.textContent;
-      operatorCount = 0;
-    } else if (
-      display.textContent !== "Division by 0 not possible" &&
-      operatorCount
+    if (
+      display.textContent.length < 8 ||
+      number1 === Number(display.textContent)
     ) {
-      display.textContent = "";
-      display.textContent += number.textContent;
-      operatorCount = 0;
-    } else if (
-      display.textContent !== "Division by 0 not possible" &&
-      !operatorCount
-    ) {
-      display.textContent += number.textContent;
+      if (display.textContent === "-") {
+        display.textContent += number.textContent;
+        operatorCount = 0;
+      } else if (
+        display.textContent !== "Division by 0 not possible" &&
+        operatorCount
+      ) {
+        display.textContent = "";
+        display.textContent += number.textContent;
+        operatorCount = 0;
+      } else if (
+        display.textContent !== "Division by 0 not possible" &&
+        !operatorCount
+      ) {
+        display.textContent += number.textContent;
+      }
     }
   });
 });
