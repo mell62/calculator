@@ -1,3 +1,7 @@
+body {
+    background-image: url("images/workspace.jpg");
+}
+
 .display{
     display: flex;
     flex-direction: column;
