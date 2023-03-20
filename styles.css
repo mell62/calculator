@@ -12,10 +12,14 @@ html {
 }
 
 .calculator{
-
     background: linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(37,37,36,1) 51%, rgba(42,42,40,1) 82%, rgba(47,47,45,1) 100%);
     border-radius: 40px;
     padding: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: solid white 5px;
 }
 
 .display{
@@ -67,6 +71,7 @@ html {
     height: 50px;
     width: 120px;
     background-color: hsl(284,54%,49%);
+    border-radius: 20px;
 }
 
 .numbers-and-operations{
@@ -91,11 +96,19 @@ html {
 }
 
 .equalsBtn{
-    background-color: hsl(350,89%,43%);
+    background-color: hsl(350,100%,43%);
 }
 
-.numberBtn, .decimalBtn{
+.numberBtn, 
+.decimalBtn{
     background-color: hsl(50,56%,53%);
+}
+
+.operatorBtn,
+.equalsBtn,
+.numberBtn,
+.decimalBtn{
+    border-radius: 100%;
 }
 
 button{
