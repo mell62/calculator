@@ -32,6 +32,7 @@ html {
     background-color: hsl(194,46%,65%);
     border-radius: 20px;
     border : solid black 2px;
+    box-shadow: inset -2px -2px 5px black, inset 2px 2px 5px black;
 }
 
 .sub-display{
@@ -127,7 +128,7 @@ html {
     font-weight: bold;
     padding: 40px;
     border: solid black 2px;
-
+    box-shadow: 2px 4px 0px black;
 }
 
 button{
