@@ -47,57 +47,69 @@ let result;
 numbers.forEach((number) => {
   number.addEventListener("mouseover", () => {
     number.classList.add("hover");
+    number.classList.add("hoverNumbersDecimal");
   });
 });
 
 operators.forEach((operator) => {
   operator.addEventListener("mouseover", () => {
     operator.classList.add("hover");
+    operator.classList.add("hoverOperators");
   });
 });
 
 decimalBtn.addEventListener("mouseover", () => {
   decimalBtn.classList.add("hover");
+  decimalBtn.classList.add("hoverNumbersDecimal");
 });
 
 equalsBtn.addEventListener("mouseover", () => {
   equalsBtn.classList.add("hover");
+  equalsBtn.classList.add("hoverEquals");
 });
 
 clearBtn.addEventListener("mouseover", () => {
   clearBtn.classList.add("hover");
+  clearBtn.classList.add("hoverClearDelete");
 });
 
 deleteBtn.addEventListener("mouseover", () => {
   deleteBtn.classList.add("hover");
+  deleteBtn.classList.add("hoverClearDelete");
 });
 
 numbers.forEach((number) => {
   number.addEventListener("mouseleave", () => {
     number.classList.remove("hover");
+    number.classList.remove("hoverNumbersDecimal");
   });
 });
 
 operators.forEach((operator) => {
   operator.addEventListener("mouseleave", () => {
     operator.classList.remove("hover");
+    operator.classList.remove("hoverOperators");
   });
 });
 
 decimalBtn.addEventListener("mouseleave", () => {
   decimalBtn.classList.remove("hover");
+  decimalBtn.classList.remove("hoverNumbersDecimal");
 });
 
 equalsBtn.addEventListener("mouseleave", () => {
   equalsBtn.classList.remove("hover");
+  equalsBtn.classList.remove("hoverEquals");
 });
 
 clearBtn.addEventListener("mouseleave", () => {
   clearBtn.classList.remove("hover");
+  clearBtn.classList.remove("hoverClearDelete");
 });
 
 deleteBtn.addEventListener("mouseleave", () => {
   deleteBtn.classList.remove("hover");
+  deleteBtn.classList.remove("hoverClearDelete");
 });
 
 numbers.forEach((number) => {

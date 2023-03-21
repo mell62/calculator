@@ -26,7 +26,7 @@ html {
     display: flex;
     flex-direction: column;
     width: 420px;
-    height: 135px;
+    height: 145px;
     box-sizing: border-box;
     margin-bottom: 20px;
     background-color: hsl(194,46%,65%);
@@ -39,7 +39,7 @@ html {
     justify-content: end;
     padding: 10px;
     box-sizing: border-box;
-    height: 60px;
+    height: 65px;
     width: 420px;
     font-family: "Londrina Sketch",sans-serif;
     font-size: 30px;
@@ -51,7 +51,7 @@ html {
     justify-content: end;
     padding: 10px;
     box-sizing: border-box;
-    height: 75px;
+    height: 80px;
     width: 420px;
     font-family: "Londrina Sketch",sans-serif;
     font-size: 45px;
@@ -140,4 +140,20 @@ button{
 
 .hover{
     transform: scale(1.1,1.1);
+}
+
+.hoverNumbersDecimal{
+    background-color: hsl(50, 76%, 60%);
+}
+
+.hoverEquals{
+    background-color: hsl(350, 83%, 53%);
+}
+
+.hoverOperators{
+    background-color: #e42571;
+}
+
+.hoverClearDelete{
+    background-color: hsl(284, 71%, 54%);
 }
