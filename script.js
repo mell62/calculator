@@ -1,9 +1,3 @@
-// Algorithm
-// Create functions for add, subtract, multiply and divide with two numbers as its parameters, return the result value
-// Create a function operate to call the right operation function: take the operation and two numbers as its parameters
-// Create an event listener which listens to click on number buttons and copies the textcontent of buttons into display
-// Append each number clicked to the textcontent of the display using string property
-
 function add(num1, num2) {
   let result = num1 + num2;
   return Math.round(result * 100000) / 100000;
@@ -306,6 +300,39 @@ deleteBtn.addEventListener("click", () => {
     }
     if (firstOperatorcheck !== secondOperatorcheck) {
       operatorCount = 0;
+    }
+  }
+});
+
+window.addEventListener("keypress", (event) => {
+  if (event.key >= 0 && event.key <= 9) {
+    if (equalsCount) {
+      equalsCount = 0;
+      display.textContent = "";
+      subDisplay.textContent = "";
+    }
+    if (
+      display.textContent.length < 8 ||
+      number1 === Number(display.textContent)
+    ) {
+      if (display.textContent === "-") {
+        display.textContent += event.key;
+        operatorCount = 0;
+      } else if (
+        display.textContent !== "Undefined" &&
+        operatorCount &&
+        display.textContent !== "Number limit exceeded"
+      ) {
+        display.textContent = "";
+        display.textContent += event.key;
+        operatorCount = 0;
+      } else if (
+        display.textContent !== "Undefined" &&
+        !operatorCount &&
+        display.textContent !== "Number limit exceeded"
+      ) {
+        display.textContent += event.key;
+      }
     }
   }
 });
