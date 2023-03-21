@@ -45,6 +45,62 @@ let equalsCount = 0;
 let result;
 
 numbers.forEach((number) => {
+  number.addEventListener("mouseover", () => {
+    number.classList.add("hover");
+  });
+});
+
+operators.forEach((operator) => {
+  operator.addEventListener("mouseover", () => {
+    operator.classList.add("hover");
+  });
+});
+
+decimalBtn.addEventListener("mouseover", () => {
+  decimalBtn.classList.add("hover");
+});
+
+equalsBtn.addEventListener("mouseover", () => {
+  equalsBtn.classList.add("hover");
+});
+
+clearBtn.addEventListener("mouseover", () => {
+  clearBtn.classList.add("hover");
+});
+
+deleteBtn.addEventListener("mouseover", () => {
+  deleteBtn.classList.add("hover");
+});
+
+numbers.forEach((number) => {
+  number.addEventListener("mouseleave", () => {
+    number.classList.remove("hover");
+  });
+});
+
+operators.forEach((operator) => {
+  operator.addEventListener("mouseleave", () => {
+    operator.classList.remove("hover");
+  });
+});
+
+decimalBtn.addEventListener("mouseleave", () => {
+  decimalBtn.classList.remove("hover");
+});
+
+equalsBtn.addEventListener("mouseleave", () => {
+  equalsBtn.classList.remove("hover");
+});
+
+clearBtn.addEventListener("mouseleave", () => {
+  clearBtn.classList.remove("hover");
+});
+
+deleteBtn.addEventListener("mouseleave", () => {
+  deleteBtn.classList.remove("hover");
+});
+
+numbers.forEach((number) => {
   number.addEventListener("click", () => {
     if (equalsCount) {
       equalsCount = 0;
