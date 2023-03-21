@@ -129,6 +129,8 @@ html {
     padding: 40px;
     border: solid black 2px;
     box-shadow: 2px 4px 0px black;
+    border-color: transparent;
+    outline: none;
 }
 
 button{
