@@ -334,6 +334,70 @@ window.addEventListener("keypress", (event) => {
         display.textContent += event.key;
       }
     }
+  } else if (
+    event.key === "+" ||
+    event.key === "-" ||
+    event.key === "*" ||
+    event.key === "x" ||
+    event.key === "X" ||
+    event.key === "/"
+  ) {
+    if (event.key === "-") {
+      if (display.textContent === "" || operatorCount) {
+        display.textContent = "-";
+      }
+    }
+    if (
+      subDisplay.textContent.includes(operatorValue) &&
+      display.textContent !== "-" &&
+      operatorCount === 0
+    ) {
+      number2 = Number(display.textContent);
+      display.textContent = evaluate();
+      if (display.textContent.length > 10) {
+        display.textContent = "Number limit exceeded";
+      }
+      if (event.key === "x" || event.key === "*") {
+        operatorValue = "X";
+      } else if (event.key === "/") {
+        operatorValue = "÷";
+      } else {
+        operatorValue = event.key;
+      }
+    }
+    decimalCount = 0;
+    operatorCount++;
+    equalsCount = 0;
+    if (operatorCount <= 1) {
+      if (display.textContent === "") {
+        number1 = 0;
+        display.textContent = "0";
+      } else {
+        number1 = Number(display.textContent);
+        if (number1 === Math.floor(number1)) {
+          number1 = Math.floor(number1);
+          display.textContent = number1;
+        }
+      }
+      if (
+        display.textContent !== "Undefined" &&
+        display.textContent !== "-" &&
+        display.textContent !== "Number limit exceeded"
+      ) {
+        if (event.key === "x" || event.key === "*") {
+          operatorValue = "X";
+          subDisplay.textContent = display.textContent + "X";
+        } else if (event.key === "/") {
+          operatorValue = "÷";
+          subDisplay.textContent = display.textContent + "÷";
+        } else {
+          operatorValue = event.key;
+          subDisplay.textContent = display.textContent + event.key;
+        }
+      } else {
+        subDisplay.textContent = "";
+      }
+    }
   }
 });
 
