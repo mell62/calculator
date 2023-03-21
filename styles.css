@@ -25,8 +25,8 @@ html {
 .display{
     display: flex;
     flex-direction: column;
-    width: 300px;
-    height: 105px;
+    width: 420px;
+    height: 135px;
     box-sizing: border-box;
     margin-bottom: 20px;
     background-color: hsl(194,46%,65%);
@@ -38,10 +38,10 @@ html {
     justify-content: end;
     padding: 10px;
     box-sizing: border-box;
-    height: 45px;
-    width: 300px;
+    height: 60px;
+    width: 420px;
     font-family: "Londrina Sketch",sans-serif;
-    font-size: 25px;
+    font-size: 30px;
     font-weight: bold;
 }
 
@@ -50,10 +50,10 @@ html {
     justify-content: end;
     padding: 10px;
     box-sizing: border-box;
-    height: 60px;
-    width: 300px;
+    height: 75px;
+    width: 420px;
     font-family: "Londrina Sketch",sans-serif;
-    font-size: 32px;
+    font-size: 45px;
     font-weight: bold;
 }
 
@@ -62,21 +62,20 @@ html {
     flex-direction: column;
     row-gap: 20px;
     height: auto;
-    width: 300px;
+    width: 420px;
 }
 
 .deletions{
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
 }
 
 .clear,
 .delete{
     height: 50px;
-    width: 120px;
+    width: 160px;
     background-color: hsl(284,54%,49%);
     border-radius: 20px;
-    
 }
 
 .numbers-and-operations{
@@ -86,7 +85,7 @@ html {
 .numbers{
     display: flex;
     row-gap: 20px;
-    column-gap: 33px;
+    column-gap: 28px;
     flex-wrap: wrap;
 }
 
@@ -123,8 +122,9 @@ html {
 .numberBtn,
 .decimalBtn{
     font-family: "Londrina Sketch",sans-serif;
-    font-size: 30px;
+    font-size: 42px;
     font-weight: bold;
+    padding: 40px;
 }
 
 button{
