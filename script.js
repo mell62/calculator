@@ -398,6 +398,44 @@ window.addEventListener("keypress", (event) => {
         subDisplay.textContent = "";
       }
     }
+  } else if (event.key === "=" || event.key === "Enter") {
+    if (event.key === "Enter") {
+      event.preventDefault();
+    }
+    if (display.textContent === "-") {
+      display.textContent = "";
+      subDisplay.textContent = "";
+      operatorCount = 0;
+    }
+    if (subDisplay.textContent) {
+      if (operatorCount) {
+        number2 = 0;
+      } else {
+        number2 = Number(display.textContent);
+        if (number2 === Math.floor(number2)) {
+          number2 = Math.floor(number2);
+          display.textContent = number2;
+        }
+      }
+    }
+    if (operatorCount) {
+      subDisplay.textContent += "0" + "=";
+      display.textContent = evaluate();
+      operatorValue = undefined;
+      equalsCount++;
+    } else if (display.textContent && !equalsCount) {
+      subDisplay.textContent += display.textContent + "=";
+      display.textContent = evaluate();
+      if (display.textContent.length > 10) {
+        display.textContent = "Number limit exceeded";
+      }
+      operatorValue = undefined;
+      equalsCount++;
+    }
+    if (display.textContent.includes(".")) {
+      decimalCount++;
+    }
+    operatorCount = 0;
   }
 });
 
