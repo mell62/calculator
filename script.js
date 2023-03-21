@@ -304,8 +304,9 @@ deleteBtn.addEventListener("click", () => {
   }
 });
 
-window.addEventListener("keypress", (event) => {
-  //keyboard support code
+//keyboard support code
+
+window.addEventListener("keydown", (event) => {
   if (event.key >= 0 && event.key <= 9) {
     if (equalsCount) {
       equalsCount = 0;
@@ -454,6 +455,42 @@ window.addEventListener("keypress", (event) => {
       }
     }
     operatorCount = 0;
+  } else if (event.key === "C" || event.key === "c") {
+    decimalCount = 0;
+    operatorCount = 0;
+    operatorValue = undefined;
+    display.textContent = "";
+    subDisplay.textContent = "";
+    number1 = NaN;
+    number2 = NaN;
+  } else if (event.key === "Backspace" || event.key === "Delete") {
+    if (
+      display.textContent !== "Undefined" &&
+      display.textContent !== "Number limit exceeded"
+    ) {
+      let beforedeletionCount = display.textContent.split(".").length;
+      let firstOperatorcheck =
+        display.textContent.includes("+") ||
+        display.textContent.includes("-") ||
+        display.textContent.includes("X") ||
+        display.textContent.includes("÷");
+      display.textContent = display.textContent.slice(
+        0,
+        display.textContent.length - 1
+      );
+      let secondOperatorcheck =
+        display.textContent.includes("+") ||
+        display.textContent.includes("-") ||
+        display.textContent.includes("X") ||
+        display.textContent.includes("÷");
+      let afterdeletionCount = display.textContent.split(".").length;
+      if (beforedeletionCount > afterdeletionCount) {
+        decimalCount = 0;
+      }
+      if (firstOperatorcheck !== secondOperatorcheck) {
+        operatorCount = 0;
+      }
+    }
   }
 });
 
