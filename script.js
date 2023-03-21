@@ -200,6 +200,14 @@ operators.forEach((operator) => {
 });
 
 equalsBtn.addEventListener("click", () => {
+  if (display.textContent === "-") {
+    display.textContent = "";
+    subDisplay.textContent = "";
+    operatorCount = 0;
+  }
+});
+
+equalsBtn.addEventListener("click", () => {
   if (subDisplay.textContent) {
     if (operatorCount) {
       number2 = 0;
