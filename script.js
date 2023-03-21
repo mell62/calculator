@@ -305,6 +305,7 @@ deleteBtn.addEventListener("click", () => {
 });
 
 window.addEventListener("keypress", (event) => {
+  //keyboard support code
   if (event.key >= 0 && event.key <= 9) {
     if (equalsCount) {
       equalsCount = 0;
@@ -434,6 +435,23 @@ window.addEventListener("keypress", (event) => {
     }
     if (display.textContent.includes(".")) {
       decimalCount++;
+    }
+    operatorCount = 0;
+  } else if (event.key === ".") {
+    if (equalsCount) {
+      equalsCount = 0;
+      decimalCount = 0;
+      display.textContent = "";
+      subDisplay.textContent = "";
+    }
+    if (decimalCount === 0) {
+      if (display.textContent === "" || operatorCount) {
+        display.textContent = "0" + ".";
+        decimalCount++;
+      } else {
+        display.textContent += ".";
+        decimalCount++;
+      }
     }
     operatorCount = 0;
   }
