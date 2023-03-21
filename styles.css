@@ -31,6 +31,7 @@ html {
     margin-bottom: 20px;
     background-color: hsl(194,46%,65%);
     border-radius: 20px;
+    border : solid black 2px;
 }
 
 .sub-display{
@@ -125,6 +126,8 @@ html {
     font-size: 42px;
     font-weight: bold;
     padding: 40px;
+    border: solid black 2px;
+
 }
 
 button{
