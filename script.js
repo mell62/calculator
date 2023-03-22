@@ -22,6 +22,24 @@ function operate(operation, num1, num2) {
   return operation(num1, num2);
 }
 
+function evaluate() {
+  if (operatorValue === "+") {
+    return (result = operate(add, number1, number2));
+  } else if (operatorValue === "-") {
+    return (result = operate(subtract, number1, number2));
+  } else if (operatorValue === "X") {
+    return (result = operate(multiply, number1, number2));
+  } else if (operatorValue === "÷") {
+    if (number2 === 0) {
+      return (result = "Undefined");
+    } else {
+      return (result = operate(divide, number1, number2));
+    }
+  } else {
+    return (result = display.textContent);
+  }
+}
+
 const display = document.querySelector(".main-display");
 const subDisplay = document.querySelector(".sub-display");
 const numbers = document.querySelectorAll(".numberBtn");
@@ -202,6 +220,15 @@ equalsBtn.addEventListener("click", () => {
 });
 
 equalsBtn.addEventListener("click", () => {
+  if (
+    !subDisplay.textContent &&
+    Math.floor(Number(display.textContent)) === Number(display.textContent)
+  ) {
+    display.textContent = Math.floor(Number(display.textContent));
+  }
+});
+
+equalsBtn.addEventListener("click", () => {
   if (subDisplay.textContent) {
     if (operatorCount) {
       number2 = 0;
@@ -307,6 +334,7 @@ deleteBtn.addEventListener("click", () => {
 //keyboard support code
 
 window.addEventListener("keydown", (event) => {
+  //numbers
   if (event.key >= 0 && event.key <= 9) {
     if (equalsCount) {
       equalsCount = 0;
@@ -336,7 +364,9 @@ window.addEventListener("keydown", (event) => {
         display.textContent += event.key;
       }
     }
-  } else if (
+  }
+  //operators
+  else if (
     event.key === "+" ||
     event.key === "-" ||
     event.key === "*" ||
@@ -400,9 +430,16 @@ window.addEventListener("keydown", (event) => {
         subDisplay.textContent = "";
       }
     }
+    //equals
   } else if (event.key === "=" || event.key === "Enter") {
     if (event.key === "Enter") {
       event.preventDefault();
+    }
+    if (
+      !subDisplay.textContent &&
+      Math.floor(Number(display.textContent)) === Number(display.textContent)
+    ) {
+      display.textContent = Math.floor(Number(display.textContent));
     }
     if (display.textContent === "-") {
       display.textContent = "";
@@ -438,7 +475,9 @@ window.addEventListener("keydown", (event) => {
       decimalCount++;
     }
     operatorCount = 0;
-  } else if (event.key === ".") {
+  }
+  //decimal
+  else if (event.key === ".") {
     if (equalsCount) {
       equalsCount = 0;
       decimalCount = 0;
@@ -455,7 +494,9 @@ window.addEventListener("keydown", (event) => {
       }
     }
     operatorCount = 0;
-  } else if (event.key === "C" || event.key === "c") {
+  }
+  //clear
+  else if (event.key === "C" || event.key === "c") {
     decimalCount = 0;
     operatorCount = 0;
     operatorValue = undefined;
@@ -463,7 +504,9 @@ window.addEventListener("keydown", (event) => {
     subDisplay.textContent = "";
     number1 = NaN;
     number2 = NaN;
-  } else if (event.key === "Backspace" || event.key === "Delete") {
+  }
+  //delete
+  else if (event.key === "Backspace" || event.key === "Delete") {
     if (
       display.textContent !== "Undefined" &&
       display.textContent !== "Number limit exceeded"
@@ -493,21 +536,3 @@ window.addEventListener("keydown", (event) => {
     }
   }
 });
-
-function evaluate() {
-  if (operatorValue === "+") {
-    return (result = operate(add, number1, number2));
-  } else if (operatorValue === "-") {
-    return (result = operate(subtract, number1, number2));
-  } else if (operatorValue === "X") {
-    return (result = operate(multiply, number1, number2));
-  } else if (operatorValue === "÷") {
-    if (number2 === 0) {
-      return (result = "Undefined");
-    } else {
-      return (result = operate(divide, number1, number2));
-    }
-  } else {
-    return (result = display.textContent);
-  }
-}
