@@ -60,6 +60,7 @@ numbers.forEach((number) => {
   number.addEventListener("mouseover", () => {
     number.classList.add("hover");
     number.classList.add("hoverNumbersDecimal");
+    number.classList.remove("hoverRemove");
   });
 });
 
@@ -67,33 +68,39 @@ operators.forEach((operator) => {
   operator.addEventListener("mouseover", () => {
     operator.classList.add("hover");
     operator.classList.add("hoverOperators");
+    operator.classList.remove("hoverRemove");
   });
 });
 
 decimalBtn.addEventListener("mouseover", () => {
   decimalBtn.classList.add("hover");
   decimalBtn.classList.add("hoverNumbersDecimal");
+  decimalBtn.classList.remove("hoverRemove");
 });
 
 equalsBtn.addEventListener("mouseover", () => {
   equalsBtn.classList.add("hover");
   equalsBtn.classList.add("hoverEquals");
+  equalsBtn.classList.remove("hoverRemove");
 });
 
 clearBtn.addEventListener("mouseover", () => {
   clearBtn.classList.add("hover");
   clearBtn.classList.add("hoverClearDelete");
+  clearBtn.classList.remove("hoverRemove");
 });
 
 deleteBtn.addEventListener("mouseover", () => {
   deleteBtn.classList.add("hover");
   deleteBtn.classList.add("hoverClearDelete");
+  deleteBtn.classList.remove("hoverRemove");
 });
 
 numbers.forEach((number) => {
   number.addEventListener("mouseleave", () => {
     number.classList.remove("hover");
     number.classList.remove("hoverNumbersDecimal");
+    number.classList.add("hoverRemove");
   });
 });
 
@@ -101,27 +108,32 @@ operators.forEach((operator) => {
   operator.addEventListener("mouseleave", () => {
     operator.classList.remove("hover");
     operator.classList.remove("hoverOperators");
+    operator.classList.add("hoverRemove");
   });
 });
 
 decimalBtn.addEventListener("mouseleave", () => {
   decimalBtn.classList.remove("hover");
   decimalBtn.classList.remove("hoverNumbersDecimal");
+  decimalBtn.classList.add("hoverRemove");
 });
 
 equalsBtn.addEventListener("mouseleave", () => {
   equalsBtn.classList.remove("hover");
   equalsBtn.classList.remove("hoverEquals");
+  equalsBtn.classList.add("hoverRemove");
 });
 
 clearBtn.addEventListener("mouseleave", () => {
   clearBtn.classList.remove("hover");
   clearBtn.classList.remove("hoverClearDelete");
+  clearBtn.classList.add("hoverRemove");
 });
 
 deleteBtn.addEventListener("mouseleave", () => {
   deleteBtn.classList.remove("hover");
   deleteBtn.classList.remove("hoverClearDelete");
+  deleteBtn.classList.add("hoverRemove");
 });
 
 numbers.forEach((number) => {

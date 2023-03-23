@@ -138,7 +138,7 @@ button{
 
 .hover{
     transform: scale(1.1,1.1);
-    transition: transform 500ms;
+    transition: transform 200ms;
 }
 
 .hoverNumbersDecimal{
@@ -155,4 +155,8 @@ button{
 
 .hoverClearDelete{
     background-color: hsl(27, 100%, 65%);
+}
+
+.hoverRemove{
+    transition: transform 100ms;
 }
