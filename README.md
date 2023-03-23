@@ -2,6 +2,8 @@
 
 A basic arithmetic calculator developed into the web using basic HTML, CSS and JavaScript.
 
+Check it out [here](https://mell62.github.io/calculator)!
+
 ![calculator-screenshot](./images/screenshot.png)
 
 ## What can it do?
