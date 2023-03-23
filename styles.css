@@ -1,11 +1,6 @@
 html {
-    background-color: black;
-    background-image: url("images/math.jpg");
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center center;
+    background-color: hsl(31, 31%, 63%);
     height: 100%;
-    overflow: hidden;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -29,7 +24,7 @@ html {
     height: 145px;
     box-sizing: border-box;
     margin-bottom: 20px;
-    background-color: hsl(194,46%,65%);
+    background-color: hsl(50,56%,53%);
     border-radius: 20px;
     border : solid black 2px;
     box-shadow: inset -2px -2px 5px black, inset 2px 2px 5px black;
@@ -76,7 +71,7 @@ html {
 .delete{
     height: 50px;
     width: 160px;
-    background-color: hsl(284,54%,49%);
+    background-color: hsl(27,100%,60%);
     border-radius: 20px;
 }
 
@@ -98,11 +93,11 @@ html {
 }
 
 .operatorBtn{
-    background-color: #e1045b;
+    background-color: hsl(27,100%,60%);
 }
 
 .equalsBtn{
-    background-color: hsl(350,100%,43%);
+    background-color: hsl(27,100%,50%);
 }
 
 .numberBtn, 
@@ -150,13 +145,13 @@ button{
 }
 
 .hoverEquals{
-    background-color: hsl(350, 83%, 53%);
+    background-color: hsl(27, 100%, 57%);
 }
 
 .hoverOperators{
-    background-color: #e42571;
+    background-color: hsl(27, 100%, 65%);
 }
 
 .hoverClearDelete{
-    background-color: hsl(284, 71%, 54%);
+    background-color: hsl(27, 100%, 65%);
 }
