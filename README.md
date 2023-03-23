@@ -2,7 +2,7 @@
 
 A basic arithmetic calculator developed into the web using basic HTML, CSS and JavaScript.
 
-Check it out [here](https://mell62.github.io/calculator)!
+**Check it out :point_right:[here](https://mell62.github.io/calculator):point_left:!**
 
 ![calculator-screenshot](./images/screenshot.png)
 
